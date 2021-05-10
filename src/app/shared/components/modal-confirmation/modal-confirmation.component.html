@@ -1,0 +1,31 @@
+<ng-template #contentModal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Confirmação de ação</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="d('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="d-flex justify-content-center">
+      <h4 class="text-primary">Realmente deseja realizar essa ação?</h4>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="d('Cross click')"
+    >
+      Sair
+    </button>
+
+    <button type="button" class="btn btn-primary" (click)="confirmated()">
+      Confirmar
+    </button>
+  </div>
+</ng-template>

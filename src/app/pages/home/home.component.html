@@ -1,0 +1,45 @@
+<div class="container my-5">
+  <div class="d-flex justify-content-end">
+    <button class="floating-button btn-primary mb-2" [routerLink]="['/user']">
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">CPF</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="!loadingData" class="w-100">
+      <tr *ngFor="let item of users">
+        <th scope="row">{{ item.cpf }}</th>
+        <td>{{ item.nome }}</td>
+        <td>
+          <div class="d-flex align-items-center actions text-muted">
+            <i
+              class="fas fa-user-edit mr-4"
+              [routerLink]="['/user', item.id]"
+            ></i>
+            <i class="fas fa-user-minus" (click)="confirmDeleteUser(item)"></i>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+
+    <div
+      *ngIf="loadingData"
+      class="spinner-border mt-5 spinner-position"
+      role="status"
+    >
+      <span class="sr-only">Loading...</span>
+    </div>
+  </table>
+</div>
+
+<app-modal-confirmation
+  #modalContent
+  (confirme)="deleteUser()"
+></app-modal-confirmation>

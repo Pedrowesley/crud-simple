@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+.text-primary {
+  color: #001e61 !important;
+}
+
+.border-primary {
+  border-color: #001f6175 !important;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #001e61;
+  border-color: #001e61;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #011b52;
+  border-color: #001e61;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+  color: #fff;
+  background-color: #011b52;
+  border-color: #001e61;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+  color: #fff;
+  background-color: #001e61;
+  border-color: #001e61;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #001e61;
+  border-color: #001e61;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}

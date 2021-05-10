@@ -1,0 +1,140 @@
+<section class="container my-5" *ngIf="!loadingUser">
+  <div class="d-flex mb-2">
+    <h3 class="text-primary">{{ title }}</h3>
+  </div>
+
+  <form class="row">
+    <div class="form-group col-md-3">
+      <label for="cpf"
+        >CPF <abbr class="text-danger" title="campo obrigatório">*</abbr>
+      </label>
+      <input
+        type="text"
+        class="form-control border-primary"
+        id="cpf"
+        aria-describedby="cpf"
+        name="cpf"
+        [(ngModel)]="user.cpf"
+        mask="000.000.000-00"
+      />
+      <!-- (keyup)="maskCpf($event.target.value)" -->
+    </div>
+
+    <div class="form-group col-md-9">
+      <label for="nome"
+        >Nome <abbr class="text-danger" title="campo obrigatório">*</abbr>
+      </label>
+      <input
+        type="text"
+        class="form-control border-primary"
+        id="nome"
+        [(ngModel)]="user.nome"
+        name="nome"
+      />
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="cep"
+        >CEP <abbr class="text-danger" title="campo obrigatório">*</abbr>
+      </label>
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control border-primary"
+          id="cep"
+          aria-describedby="cep"
+          [(ngModel)]="user.cep"
+          name="cep"
+          mask="00000-000"
+        />
+        <div class="input-group-prepend">
+          <button class="btn btn-primary" (click)="getCEP()">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="uf"
+        >UF <abbr class="text-danger" title="campo obrigatório">*</abbr>
+      </label>
+
+      <select
+        id="uf"
+        name="uf"
+        class="form-control border-primary"
+        aria-label="Default select example"
+        [(ngModel)]="user.uf"
+      >
+        <option selected>Selecione um valor</option>
+        <option *ngFor="let item of ufs" [value]="item.sigla">
+          {{ item.sigla }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="localidade"
+        >Localidade <abbr class="text-danger" title="campo obrigatório">*</abbr>
+      </label>
+      <input
+        id="localidade"
+        type="text"
+        class="form-control border-primary"
+        aria-describedby="localidade"
+        name="localidade"
+        [(ngModel)]="user.localidade"
+      />
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="bairro"
+        >Bairro <abbr class="text-danger" title="campo obrigatório">*</abbr>
+      </label>
+      <input
+        type="text"
+        class="form-control border-primary"
+        id="bairro"
+        aria-describedby="bairro"
+        name="bairro"
+        [(ngModel)]="user.bairro"
+      />
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="logradouro"
+        >Logradouro <abbr class="text-danger" title="campo obrigatório">*</abbr>
+      </label>
+      <input
+        type="text"
+        class="form-control border-primary"
+        id="logradouro"
+        aria-describedby="logradouro"
+        name="logradouro"
+        [(ngModel)]="user.logradouro"
+      />
+    </div>
+  </form>
+  <div class="d-flex justify-content-end">
+    <button type="button" class="btn btn-primary" (click)="confirmUpdateUser()">
+      Salvar
+    </button>
+  </div>
+</section>
+
+<section class="container my-5" *ngIf="loadingUser">
+  <div class="d-flex justify-content-center">
+    <div *ngIf="loadingUser" class="spinner-border mt-5" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <p class="d-flex justify-content-center text-muted h5 mt-3 text-primary">
+    Carregando dados do usuário
+  </p>
+</section>
+
+<app-modal-confirmation
+  #modalContent
+  (confirme)="updateUser()"
+></app-modal-confirmation>

@@ -1,0 +1,14 @@
+{
+  "usuarios": [
+    {
+      "cpf": "93138513509",
+      "nome": "Brenda Daniela Vieiraaa",
+      "cep": "60355-380",
+      "logradouro": "Vila Pontes",
+      "bairro": "Presidente Kennedy",
+      "localidade": "Fortalezaa",
+      "uf": "CE",
+      "id": 1
+    }
+  ]
+}
